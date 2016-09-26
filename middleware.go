@@ -52,7 +52,7 @@ func NewMiddleware(name string, buckets ...float64) *Middleware {
 	return &m
 }
 
-func (m *Middleware) ServeHTTP(rw http.ResponseWriter, r *http.Request, next http.HandlerFunc) {
+func (m *Middleware) ServeHTTP(rw http.ResponseWriter, r *http.Request) {
 	start := time.Now()
 	next(rw, r)
 	res := rw.(negroni.ResponseWriter)
